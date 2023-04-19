@@ -10,6 +10,31 @@
 <body>
     <ul>
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <% if (!isLogged) { %>
+                <a class="navbar-brand" href="#"><%= user.name %></a>
+            <%} else { %>    
+                <a class="navbar-brand" href="#">pki-lab9</a>
+            <%}%>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <% if (!isLogged) { %>
+                    <li><a class="nav-item nav-link" href="auth/signin">Signin</a></li>
+                    <li><a class="nav-item nav-link" href="auth/signup">Signup</a></li>
+                    <li><a class="nav-item nav-link" href="resource/public">Public</a></li>
+                <%} else { %>    
+                    <li><a class="nav-item nav-link" href="resource/public">Public</a></li>
+                    <li><a class="nav-item nav-link" href="resource/user">User</a></li>
+                    <li><a class="nav-item nav-link" href="resource/admin">Admin</a></li>
+                    <li><a class="nav-item nav-link" href="auth/logout">Logout</a></li>
+                    <%}%>
+              </div>
+            </div>
+          </nav>
+
         <% if (!isLogged) { %>
             <li><a href="auth/signin">Signin</a></li>
             <li><a href="auth/signup">Signup</a></li>
