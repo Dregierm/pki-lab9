@@ -48,7 +48,7 @@ router.get('/admin',  verify(['admin']), async function(req, res, next) {
     res.status(500).render('error', { message: error.message });
   }
 
-  res.render('admin', {users: users});
+  res.render('admin', {users: users, user: req.user});
 });
 
 module.exports = router;
